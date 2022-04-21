@@ -12,6 +12,11 @@ public class TetrisController : MonoBehaviour
     [SerializeField, Range(5, 20)] private int stageHeight = 20;
     [SerializeField] private float fallCycle = 1.0f;
 
+    private void Awake()
+    {
+        blockPrefab = Resources.Load<GameObject>("Prefabs/tetris_block");
+    }
+
     private void Start()
     {
         if (!blockPrefab) { Debug.LogError("Error: Prefab for block is missing"); }
