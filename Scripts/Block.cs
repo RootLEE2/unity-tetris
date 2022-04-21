@@ -36,7 +36,7 @@ public class Block : MonoBehaviour
 
         if (spriteRenderer == null)
         {
-            Debug.LogError("You need to SpriteRenderer for Block");
+            Debug.LogError("Error: SpriteRenderer for block is missing");
         }
     }
 }
