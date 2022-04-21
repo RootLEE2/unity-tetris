@@ -16,8 +16,8 @@ public class TetrisController : MonoBehaviour
     {
         if (!blockPrefab) { Debug.LogError("Error: Prefab for block is missing"); }
 
-        // TODO: border, stage setup
         StageController.instance.SetupBackground(blockPrefab, stageWidth, stageHeight);
+        BorderController.instance.SetupBackground(blockPrefab, stageWidth, stageHeight);
     }   
 }
 
