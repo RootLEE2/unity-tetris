@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BlockColor;
 
-public class StageController : MonoBehaviour, IBackgroundSetting
+public class StageController : BlockCreator, IBackgroundSetting
 {
     public static StageController instance;
 
@@ -15,7 +15,6 @@ public class StageController : MonoBehaviour, IBackgroundSetting
 
     public void SetupBackground(GameObject a_blockPrefab, int a_stageWidth, int a_stageHeight)
     {
-        Transform thisTransform = gameObject.GetComponent<Transform>();
         Color blockColor = ColorSet.STAGE;
 
         int halfWidth = Mathf.RoundToInt(a_stageWidth * 0.5f);
@@ -25,12 +24,7 @@ public class StageController : MonoBehaviour, IBackgroundSetting
         {
             for (int y = halfHeight; y > -halfHeight; y--)
             {
-                var stage = Instantiate(a_blockPrefab, thisTransform);
-                stage.transform.localPosition = new Vector3(x, y, 0);
-
-                var block = stage.GetComponent<Block>();
-                block.color = blockColor;
-                block.sortingOrder = -1;
+                CreateBlock(a_blockPrefab, transform, new Vector3(x,y,0), blockColor, -1);
             }
         }
     }
