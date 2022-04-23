@@ -11,9 +11,12 @@ public class TetrisController : MonoBehaviour
 
     private void Start()
     {
+        TetrominoController.instance.gameObject.transform.position = new Vector3(0f, stageHeight/2+1, 0f);
+
         StageController.instance.SetupBackground(stageWidth, stageHeight);
         BorderController.instance.SetupBackground(stageWidth, stageHeight);
-    }   
+        TetrominoController.instance.CreateTetromino();
+    }
 }
 
 public interface IBackgroundSetting
