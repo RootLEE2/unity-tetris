@@ -10,10 +10,12 @@ public class StageController : BlockCreator, IBackgroundSetting
 
     private void Awake()
     {
+        base.Awake();
+        
         instance = this;
     }
 
-    public void SetupBackground(GameObject a_blockPrefab, int a_stageWidth, int a_stageHeight)
+    public void SetupBackground(int a_stageWidth, int a_stageHeight)
     {
         Color blockColor = ColorSet.STAGE;
 
@@ -24,7 +26,7 @@ public class StageController : BlockCreator, IBackgroundSetting
         {
             for (int y = halfHeight; y > -halfHeight; y--)
             {
-                CreateBlock(a_blockPrefab, transform, new Vector3(x,y,0), blockColor, -1);
+                CreateBlock(transform, new Vector3(x,y,0), blockColor, -1);
             }
         }
     }

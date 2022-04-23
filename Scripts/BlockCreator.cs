@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class BlockCreator : MonoBehaviour
 {
-    protected void CreateBlock(GameObject a_blockPrefab, Transform a_parent, Vector3 a_position, Color a_blockColor, int a_sortingOrder)
+    [Header("Objects & Prefabs")]
+    [SerializeField] private static GameObject blockPrefab;
+
+    protected void Awake()
     {
-        var blockObject = Instantiate(a_blockPrefab, a_parent);
+        if (!blockPrefab)
+        {
+            blockPrefab = Resources.Load<GameObject>("Prefabs/tetris_block");
+
+            if (!blockPrefab)
+            {
+                Debug.LogError("Error: Prefab for block is missing");
+            }
+        }
+    }
+
+    protected void CreateBlock(Transform a_parent, Vector3 a_position, Color a_blockColor, int a_sortingOrder)
+    {
+        var blockObject = Instantiate(blockPrefab, a_parent);
         blockObject.transform.localPosition = a_position;
 
         var block = blockObject.GetComponent<Block>();
