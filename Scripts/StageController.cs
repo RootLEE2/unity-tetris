@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BlockColor;
 
-public class StageController : BlockCreator, IBackgroundSetting
+public class StageController : BlockSpawner, IBackgroundSetting
 {
     public static StageController instance;
 

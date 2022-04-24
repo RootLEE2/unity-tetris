@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockCreator : MonoBehaviour
+public class BlockSpawner : MonoBehaviour
 {
     [Header("Objects & Prefabs")]
     [SerializeField] private static GameObject blockPrefab;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BlockColor;
 
-public class TetrominoController : BlockCreator
+public class TetrominoController : BlockSpawner
 {
     public static TetrominoController instance;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 using BlockColor;
 
-public class BorderController : BlockCreator, IBackgroundSetting
+public class BorderController : BlockSpawner, IBackgroundSetting
 {
     public static BorderController instance;
 
